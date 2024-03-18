@@ -4,6 +4,7 @@ type CounterStore = {
     count: number;
     increment: () => void;
     decrement: () => void;
+    multiply: () => void;
 };
 
 export const useCounterStore = create<CounterStore>((set) => ({
@@ -13,5 +14,8 @@ export const useCounterStore = create<CounterStore>((set) => ({
     },
     decrement: () => {
         set((state) => ({ count: state.count -1}));
+    },
+    multiply: () => {
+        set((state) => ({ count: state.count * state.count}));
     },
 }));
